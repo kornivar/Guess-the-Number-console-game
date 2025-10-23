@@ -42,3 +42,19 @@ int GetUserInput()
 
     return 0;
 }
+
+int CheckGuess(int guess, int secret)
+{
+    if (guess < secret)
+    {
+        return 1;
+    }
+    else if (guess > secret)
+    {
+        return -1;
+    }
+    else
+    {
+        return 0;
+    }
+}
