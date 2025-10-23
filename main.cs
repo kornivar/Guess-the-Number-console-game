@@ -113,4 +113,50 @@ void game(bool new_game, char difficulty = 'm')
         Console.WriteLine("Hard difficulty! Guess a number between 1 and 500 in 10 TRIES. \nPress Enter to continue...");
         Console.ReadLine();
     }
+
+    while (true)
+    {
+        int guess = 0;
+        if (max_tries && try_count < 10)
+        {
+            guess = GetUserInput();
+        }
+        else if (max_tries && try_count >= 10)
+        {
+            Console.WriteLine("You couldn't guess the number in 10 tries!");
+            break;
+        }
+        else
+        {
+            guess = GetUserInput();
+        }
+
+        if (try_count >= attempts.Length)
+        {
+            Array.Resize(ref attempts, attempts.Length * 2);
+        }
+        attempts[try_count] = guess;
+        try_count++;
+
+
+        int result = CheckGuess(guess, target_number);
+        if (result == 1)
+        {
+            Console.WriteLine("The secret number is bigger.");
+        }
+        else if (result == -1)
+        {
+            Console.WriteLine("The secret number is smaller.");
+        }
+        else
+        {
+            Console.WriteLine("You guessed the secret number in " + try_count + " tries!");
+            Console.WriteLine("List of attempts:");
+            for (int i = 0; i < try_count; i++)
+            {
+                Console.WriteLine("Attempt " + (i + 1) + ": " + attempts[i]);
+            }
+            break;
+        }
+    }
 }
