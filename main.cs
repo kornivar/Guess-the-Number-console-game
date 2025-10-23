@@ -85,4 +85,32 @@ void game(bool new_game, char difficulty = 'm')
             Console.WriteLine("Invalid input! Please enter 'e', 'm' or 'h'.");
         }
     } while (true);
+
+    int target_number = 0;
+    bool max_tries = false;
+    if (new_game && difficulty == 'e')
+    {
+        target_number = GetRandomNumber(1, 50);
+        try_count = 0;
+        attempts = new int[10];
+        Console.WriteLine("Easy difficulty! Guess a number between 1 and 50. \nPress Enter to continue...");
+        Console.ReadLine();
+    }
+    else if (new_game && difficulty == 'm')
+    {
+        target_number = GetRandomNumber(1, 100);
+        try_count = 0;
+        attempts = new int[10];
+        Console.WriteLine("Medium difficulty! Guess a number between 1 and 100. \nPress Enter to continue...");
+        Console.ReadLine();
+    }
+    else if (new_game && difficulty == 'h')
+    {
+        max_tries = true;
+        target_number = GetRandomNumber(1, 500);
+        try_count = 0;
+        attempts = new int[10];
+        Console.WriteLine("Hard difficulty! Guess a number between 1 and 500 in 10 TRIES. \nPress Enter to continue...");
+        Console.ReadLine();
+    }
 }
