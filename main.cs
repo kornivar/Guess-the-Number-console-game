@@ -160,3 +160,32 @@ void game(bool new_game, char difficulty = 'm')
         }
     }
 }
+
+bool playAgain = true;
+
+while (playAgain)
+{
+    game(true);
+
+    while (true)
+    {
+        Console.Write("Would you like to play again? (y/n): ");
+        string input = Console.ReadLine();
+
+        if (input.ToLower() == "y")
+        {
+            playAgain = true;
+            break;
+        }
+        else if (input.ToLower() == "n")
+        {
+            playAgain = false;
+            break;
+        }
+        else
+        {
+            Console.WriteLine("Invalid input! Please enter 'y' or 'n'.");
+        }
+    }
+}
+
