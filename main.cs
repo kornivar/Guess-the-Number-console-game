@@ -58,3 +58,31 @@ int CheckGuess(int guess, int secret)
         return 0;
     }
 }
+
+void game(bool new_game, char difficulty = 'm')
+{
+    Console.WriteLine("Select the difficulty level(e, m or h)");
+    do
+    {
+        string input = Console.ReadLine();
+        if (input.ToLower() == "e")
+        {
+            difficulty = 'e';
+            break;
+        }
+        else if (input.ToLower() == "m")
+        {
+            difficulty = 'm';
+            break;
+        }
+        else if (input.ToLower() == "h")
+        {
+            difficulty = 'h';
+            break;
+        }
+        else
+        {
+            Console.WriteLine("Invalid input! Please enter 'e', 'm' or 'h'.");
+        }
+    } while (true);
+}
